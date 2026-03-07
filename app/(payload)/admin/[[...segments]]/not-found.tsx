@@ -10,10 +10,10 @@ type Args = {
 const NotFound = async ({ params, searchParams }: Args) => {
   return (
     <NotFoundPage
-      config={await configPromise}
+      config={configPromise}
       importMap={importMap}
-      params={await params}
-      searchParams={await searchParams}
+      params={params}
+      searchParams={searchParams}
     />
   )
 }

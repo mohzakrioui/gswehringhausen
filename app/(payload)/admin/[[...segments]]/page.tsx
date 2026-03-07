@@ -13,10 +13,10 @@ export const generateMetadata = ({ params, searchParams }: Args) =>
 const Page = async ({ params, searchParams }: Args) => {
   return (
     <RootPage
-      config={await configPromise}
+      config={configPromise}
       importMap={importMap}
-      params={await params}
-      searchParams={await searchParams}
+      params={params}
+      searchParams={searchParams}
     />
   )
 }

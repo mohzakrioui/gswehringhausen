@@ -12,10 +12,8 @@ type Args = {
 }
 
 const Layout = async ({ children }: Args) => {
-  const config = await configPromise
-
   return (
-    <RootLayout config={config} importMap={importMap} serverFunction={handleServerFunctions}>
+    <RootLayout config={configPromise} importMap={importMap} serverFunction={handleServerFunctions}>
       {children}
     </RootLayout>
   )
