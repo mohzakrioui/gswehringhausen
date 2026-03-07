@@ -78,7 +78,7 @@ async function main() {
 
     // Check for duplicates
     const { rows: existing } = await pool.query(
-      `SELECT id FROM events WHERE title=$1 AND "startDate"=$2 AND "isNrwHoliday"=true`,
+      `SELECT id FROM events WHERE title=$1 AND start_date=$2 AND is_nrw_holiday=true`,
       [title, startDate],
     )
 
@@ -89,7 +89,7 @@ async function main() {
     }
 
     await pool.query(
-      `INSERT INTO events (title, type, "startDate", "endDate", "allDay", "isNrwHoliday", "createdAt", "updatedAt")
+      `INSERT INTO events (title, type, start_date, end_date, all_day, is_nrw_holiday, created_at, updated_at)
        VALUES ($1, 'holiday', $2, $3, true, true, NOW(), NOW())`,
       [title, startDate, endDate],
     )
