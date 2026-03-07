@@ -8,6 +8,7 @@ import { ArrowLeft, Calendar, User } from 'lucide-react'
 import { getPayloadClient } from '../../../../lib/payload'
 import Badge from '../../../../components/ui/Badge'
 import RichText from '../../../../components/ui/RichText'
+import { unstable_cache } from 'next/cache'
 
 export const revalidate = 60
 
@@ -15,15 +16,25 @@ interface Props {
   params: Promise<{ slug: string }>
 }
 
+const getArticleData = unstable_cache(
+  async (slug: string) => {
+    const payload = await getPayloadClient()
+    const { docs } = await payload.find({
+      collection: 'news-articles',
+      where: { slug: { equals: slug }, status: { equals: 'published' } },
+      limit: 1,
+      depth: 2,
+    })
+    return docs[0] || null
+  },
+  ['article-slug'],
+  { revalidate: 60, tags: ['news-articles'] }
+)
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
-  const payload = await getPayloadClient()
-  const { docs } = await payload.find({
-    collection: 'news-articles',
-    where: { slug: { equals: slug }, status: { equals: 'published' } },
-    limit: 1,
-  })
-  const article = docs[0] as any
+  const article = await getArticleData(slug) as any
+
   if (!article) return { title: 'Nicht gefunden' }
   return {
     title: article.title,
@@ -38,14 +49,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ArticlePage({ params }: Props) {
   const { slug } = await params
-  const payload = await getPayloadClient()
-  const { docs } = await payload.find({
-    collection: 'news-articles',
-    where: { slug: { equals: slug }, status: { equals: 'published' } },
-    limit: 1,
-    depth: 2,
-  })
-  const article = docs[0] as any
+  const article = await getArticleData(slug) as any
+  
   if (!article) notFound()
 
   return (

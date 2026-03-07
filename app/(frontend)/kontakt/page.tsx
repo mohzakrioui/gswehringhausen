@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import { Phone, Mail, MapPin, Clock } from 'lucide-react'
+import Link from 'next/link'
 import PageHero from '../../../components/ui/PageHero'
 import ContactForm from '../../../components/sections/ContactForm'
 import MapClientWrapper from '../../../components/sections/MapClientWrapper'
@@ -68,7 +69,7 @@ export default function KontaktPage() {
               <p className="text-sm text-amber-700">
                 Bitte melden Sie Ihr Kind bis <strong>8:00 Uhr</strong> telefonisch krank oder
                 nutzen Sie das{' '}
-                <a href="/eltern" className="underline">Online-Formular im Elternbereich</a>.
+                <Link href="/eltern" className="underline">Online-Formular im Elternbereich</Link>.
               </p>
             </div>
 

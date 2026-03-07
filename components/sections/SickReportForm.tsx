@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { CheckCircle, AlertCircle, Loader2 } from 'lucide-react'
+import Link from 'next/link'
 
 const schema = z.object({
   childName: z.string().min(2, 'Bitte Name des Kindes eingeben'),
@@ -101,9 +102,9 @@ export default function SickReportForm() {
           <input {...register('gdprConsent')} type="checkbox" className="mt-1 rounded" />
           <span className="text-sm text-gray-700">
             Ich stimme der Verarbeitung meiner Daten gemäß der{' '}
-            <a href="/datenschutz" className="underline text-[var(--color-primary)]" target="_blank">
+            <Link href="/datenschutz" className="underline text-[var(--color-primary)]" target="_blank">
               Datenschutzerklärung
-            </a>{' '}
+            </Link>{' '}
             zu. *
           </span>
         </label>

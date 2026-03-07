@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { getPayloadClient } from '../../../lib/payload'
 import PageHero from '../../../components/ui/PageHero'
 import { Users, ArrowRight } from 'lucide-react'
+import { unstable_cache } from 'next/cache'
 
 export const metadata: Metadata = {
   title: 'Unsere Schule',
@@ -12,13 +13,22 @@ export const metadata: Metadata = {
 
 export const revalidate = 3600
 
+const getStaffData = unstable_cache(
+  async () => {
+    const payload = await getPayloadClient()
+    const { docs: staff } = await payload.find({
+      collection: 'staff',
+      sort: 'order',
+      depth: 1,
+    })
+    return staff
+  },
+  ['staff-list'],
+  { revalidate: 3600, tags: ['staff'] }
+)
+
 export default async function UnschuleSchulePage() {
-  const payload = await getPayloadClient()
-  const { docs: staff } = await payload.find({
-    collection: 'staff',
-    sort: 'order',
-    depth: 1,
-  })
+  const staff = await getStaffData()
 
   const grouped = (staff as any[]).reduce(
     (acc: Record<string, any[]>, s) => {

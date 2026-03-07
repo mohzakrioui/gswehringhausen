@@ -4,6 +4,7 @@ import PageHero from '../../../components/ui/PageHero'
 import RichText from '../../../components/ui/RichText'
 import { FileText, Download } from 'lucide-react'
 import Link from 'next/link'
+import { unstable_cache } from 'next/cache'
 
 interface PageProps {
   params: Promise<{
@@ -12,6 +13,23 @@ interface PageProps {
 }
 
 export const revalidate = 600 // Revalidate every 10 minutes
+
+const getPageData = unstable_cache(
+  async (slug: string) => {
+    const payload = await getPayloadClient()
+    const pages = await payload.find({
+      collection: 'pages',
+      where: {
+        slug: {
+          equals: slug,
+        },
+      },
+    })
+    return pages.docs[0] || null
+  },
+  ['pages-slug'],
+  { revalidate: 600, tags: ['pages'] }
+)
 
 export async function generateStaticParams() {
   const payload = await getPayloadClient()
@@ -30,17 +48,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params
-  const payload = await getPayloadClient()
-  const pages = await payload.find({
-    collection: 'pages',
-    where: {
-      slug: {
-        equals: slug,
-      },
-    },
-  })
-
-  const page = pages.docs[0] as any
+  const page = await getPageData(slug) as any
 
   if (!page) {
     return {
@@ -55,18 +63,7 @@ export async function generateMetadata({ params }: PageProps) {
 
 export default async function DynamicPage({ params }: PageProps) {
   const { slug } = await params
-  const payload = await getPayloadClient()
-  
-  const pages = await payload.find({
-    collection: 'pages',
-    where: {
-      slug: {
-        equals: slug,
-      },
-    },
-  })
-
-  const page = pages.docs[0] as any
+  const page = await getPageData(slug) as any
 
   if (!page) {
     notFound()
