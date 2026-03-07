@@ -1,5 +1,5 @@
 import { RootPage, generatePageMetadata } from '@payloadcms/next/views'
-import configPromise from '../../../../payload.config'
+import configPromise from '@/payload.config'
 import { importMap } from '../importMap'
 
 type Args = {

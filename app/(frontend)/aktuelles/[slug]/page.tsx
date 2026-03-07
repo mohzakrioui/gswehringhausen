@@ -7,6 +7,7 @@ import { de } from 'date-fns/locale'
 import { ArrowLeft, Calendar, User } from 'lucide-react'
 import { getPayloadClient } from '../../../../lib/payload'
 import Badge from '../../../../components/ui/Badge'
+import RichText from '../../../../components/ui/RichText'
 
 export const revalidate = 60
 
@@ -96,10 +97,7 @@ export default async function ArticlePage({ params }: Props) {
 
       {/* Content */}
       <div className="prose max-w-none text-gray-800">
-        {/* Lexical rich text is rendered as HTML by Payload */}
-        {article.content && (
-          <div dangerouslySetInnerHTML={{ __html: article.content }} />
-        )}
+        <RichText data={article.content} />
       </div>
     </article>
   )

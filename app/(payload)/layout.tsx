@@ -3,7 +3,7 @@ import { handleServerFunctions } from './actions'
 import '@payloadcms/next/css'
 import React from 'react'
 
-import configPromise from '../../payload.config'
+import configPromise from '@/payload.config'
 import { importMap } from './admin/importMap'
 import './layout.css'
 
