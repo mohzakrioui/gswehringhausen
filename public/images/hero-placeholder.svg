@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" width="1280" height="640">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#bfdbfe"/>
+      <stop offset="100%" stop-color="#eff6ff"/>
+    </linearGradient>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#86efac"/>
+      <stop offset="100%" stop-color="#4ade80"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="1280" height="640" fill="url(#sky)"/>
+
+  <!-- Sun -->
+  <circle cx="1100" cy="100" r="60" fill="#fef08a" opacity="0.8"/>
+  <circle cx="1100" cy="100" r="48" fill="#fde047"/>
+
+  <!-- Clouds -->
+  <g opacity="0.7">
+    <ellipse cx="200" cy="120" rx="80" ry="40" fill="white"/>
+    <ellipse cx="260" cy="100" rx="70" ry="45" fill="white"/>
+    <ellipse cx="150" cy="130" rx="55" ry="35" fill="white"/>
+  </g>
+  <g opacity="0.6">
+    <ellipse cx="900" cy="80" rx="60" ry="30" fill="white"/>
+    <ellipse cx="950" cy="65" rx="55" ry="35" fill="white"/>
+    <ellipse cx="860" cy="85" rx="45" ry="28" fill="white"/>
+  </g>
+
+  <!-- Ground -->
+  <rect x="0" y="480" width="1280" height="160" fill="url(#ground)"/>
+
+  <!-- Path -->
+  <rect x="560" y="400" width="160" height="245" fill="#d4a96a" rx="4"/>
+  <rect x="580" y="400" width="120" height="245" fill="#e8c88a" rx="2"/>
+
+  <!-- School building main body -->
+  <rect x="200" y="220" width="880" height="300" fill="#f8fafc" rx="4"/>
+  <rect x="200" y="220" width="880" height="300" fill="#e2e8f0" rx="4"/>
+
+  <!-- Bricks texture suggestion -->
+  <rect x="200" y="220" width="880" height="300" fill="#f1f5f9" rx="4"/>
+
+  <!-- Roof -->
+  <polygon points="180,220 640,100 1100,220" fill="#475569"/>
+  <polygon points="200,220 640,110 1080,220" fill="#64748b"/>
+
+  <!-- Roof ridge decoration -->
+  <rect x="620" y="95" width="40" height="130" fill="#94a3b8" rx="2"/>
+  <!-- Flag -->
+  <rect x="638" y="55" width="3" height="50" fill="#475569"/>
+  <polygon points="641,55 680,72 641,90" fill="#1d4ed8" opacity="0.9"/>
+
+  <!-- Windows — top row -->
+  <rect x="280" y="260" width="80" height="70" fill="#bfdbfe" rx="4" stroke="#93c5fd" stroke-width="2"/>
+  <rect x="290" y="260" width="2" height="70" fill="#93c5fd"/>
+  <rect x="280" y="260" width="80" height="2" fill="#93c5fd"/>
+  <rect x="280" y="295" width="80" height="2" fill="#93c5fd"/>
+
+  <rect x="420" y="260" width="80" height="70" fill="#bfdbfe" rx="4" stroke="#93c5fd" stroke-width="2"/>
+  <rect x="430" y="260" width="2" height="70" fill="#93c5fd"/>
+  <rect x="420" y="295" width="80" height="2" fill="#93c5fd"/>
+
+  <rect x="720" y="260" width="80" height="70" fill="#bfdbfe" rx="4" stroke="#93c5fd" stroke-width="2"/>
+  <rect x="730" y="260" width="2" height="70" fill="#93c5fd"/>
+  <rect x="720" y="295" width="80" height="2" fill="#93c5fd"/>
+
+  <rect x="860" y="260" width="80" height="70" fill="#bfdbfe" rx="4" stroke="#93c5fd" stroke-width="2"/>
+  <rect x="870" y="260" width="2" height="70" fill="#93c5fd"/>
+  <rect x="860" y="295" width="80" height="2" fill="#93c5fd"/>
+
+  <!-- Windows — bottom row -->
+  <rect x="280" y="370" width="80" height="70" fill="#bfdbfe" rx="4" stroke="#93c5fd" stroke-width="2"/>
+  <rect x="290" y="370" width="2" height="70" fill="#93c5fd"/>
+  <rect x="280" y="405" width="80" height="2" fill="#93c5fd"/>
+
+  <rect x="420" y="370" width="80" height="70" fill="#bfdbfe" rx="4" stroke="#93c5fd" stroke-width="2"/>
+  <rect x="430" y="370" width="2" height="70" fill="#93c5fd"/>
+  <rect x="420" y="405" width="80" height="2" fill="#93c5fd"/>
+
+  <rect x="720" y="370" width="80" height="70" fill="#bfdbfe" rx="4" stroke="#93c5fd" stroke-width="2"/>
+  <rect x="730" y="370" width="2" height="70" fill="#93c5fd"/>
+  <rect x="720" y="405" width="80" height="2" fill="#93c5fd"/>
+
+  <rect x="860" y="370" width="80" height="70" fill="#bfdbfe" rx="4" stroke="#93c5fd" stroke-width="2"/>
+  <rect x="870" y="370" width="2" height="70" fill="#93c5fd"/>
+  <rect x="860" y="405" width="80" height="2" fill="#93c5fd"/>
+
+  <!-- Main entrance door -->
+  <rect x="580" y="380" width="120" height="140" fill="#1e3a8a" rx="6"/>
+  <rect x="590" y="390" width="45" height="110" fill="#2563eb" rx="3"/>
+  <rect x="645" y="390" width="45" height="110" fill="#2563eb" rx="3"/>
+  <circle cx="637" cy="448" r="5" fill="#f59e0b"/>
+  <circle cx="643" cy="448" r="5" fill="#f59e0b"/>
+  <!-- Door arch -->
+  <path d="M580,380 Q640,340 700,380" fill="#1e3a8a" stroke="#1e3a8a"/>
+
+  <!-- School sign -->
+  <rect x="570" y="355" width="140" height="30" fill="#f59e0b" rx="4"/>
+  <text x="640" y="375" text-anchor="middle" fill="#1e3a8a" font-size="12" font-weight="bold" font-family="sans-serif">GRUNDSCHULE</text>
+
+  <!-- Left tree -->
+  <rect x="130" y="380" width="14" height="120" fill="#92400e" rx="3"/>
+  <circle cx="137" cy="350" r="70" fill="#16a34a" opacity="0.9"/>
+  <circle cx="110" cy="370" r="50" fill="#15803d" opacity="0.8"/>
+  <circle cx="165" cy="365" r="55" fill="#15803d" opacity="0.8"/>
+
+  <!-- Right tree -->
+  <rect x="1136" y="380" width="14" height="120" fill="#92400e" rx="3"/>
+  <circle cx="1143" cy="350" r="70" fill="#16a34a" opacity="0.9"/>
+  <circle cx="1116" cy="370" r="50" fill="#15803d" opacity="0.8"/>
+  <circle cx="1170" cy="365" r="55" fill="#15803d" opacity="0.8"/>
+
+  <!-- Small hedge in front -->
+  <ellipse cx="350" cy="490" rx="80" ry="25" fill="#15803d"/>
+  <ellipse cx="930" cy="490" rx="80" ry="25" fill="#15803d"/>
+
+  <!-- Bench left -->
+  <rect x="410" y="498" width="60" height="6" fill="#92400e" rx="2"/>
+  <rect x="416" y="504" width="8" height="14" fill="#92400e" rx="1"/>
+  <rect x="458" y="504" width="8" height="14" fill="#92400e" rx="1"/>
+
+  <!-- Flagpole -->
+  <rect x="1060" y="360" width="4" height="130" fill="#94a3b8"/>
+  <polygon points="1064,360 1090,373 1064,386" fill="#1d4ed8"/>
+</svg>
